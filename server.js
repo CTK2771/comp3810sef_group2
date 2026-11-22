@@ -64,7 +64,7 @@ function isLoggedIn(req, res, next) {
 
 
 //MongoDB database info
-const mongourl = process.env.MONGODB_URI; //Paste your MongoDB connection string here
+const mongourl = process.env.MONGODB_URI; //MONGODB_URL already set in Azure
 const dbName = 'comp3810sef';
 const collectionName = 'experiments';
 
