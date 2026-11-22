@@ -17,7 +17,7 @@ app.use(express.static('public'));
 const facebookAuth = {
     'clientID'        : '923403890739846', //This is the Facebook app ID
     'clientSecret'    : '63d302eb1044b53cbf7e839be6d21164', //This is the Facebook app secret
-    'callbackURL'     : 'http://localhost:8099/auth/facebook/callback'
+    'callbackURL'     : process.env.CALLBACK_URL || 'http://localhost:8099/auth/facebook/callback'
 };
 
 
