@@ -1,0 +1,83 @@
+<%- include('header') %>
+<% var knownMetrics = ['Accuracy','Precision','Recall','F1','RMSE','MAE','MSE','BLEU']; %>
+<% var metricName = experiment.metricName || (experiment.accuracy != undefined ? 'Accuracy' : ''); %>
+<% var metricIsKnown = knownMetrics.indexOf(metricName) >= 0; %>
+<% var metricValue = experiment.metricValue !== '' && experiment.metricValue != undefined ? experiment.metricValue : (experiment.accuracy != undefined ? experiment.accuracy : ''); %>
+<section class="panel">
+    <h1>Edit experiment</h1>
+    <form action="/experiments/update" method="POST" class="form-grid">
+        <input type="hidden" name="_id" value="<%= experiment._id %>">
+        <div>
+            <label>Title</label>
+            <input name="title" value="<%= experiment.title %>" required>
+        </div>
+        <div>
+            <label>Status</label>
+            <select name="status">
+                <option value="queued" <%= experiment.status == 'queued' ? 'selected' : '' %>>Queued</option>
+                <option value="running" <%= experiment.status == 'running' ? 'selected' : '' %>>Running</option>
+                <option value="completed" <%= experiment.status == 'completed' ? 'selected' : '' %>>Completed</option>
+                <option value="failed" <%= experiment.status == 'failed' ? 'selected' : '' %>>Failed</option>
+            </select>
+        </div>
+        <div>
+            <label>Model</label>
+            <input name="model" value="<%= experiment.model %>" required>
+        </div>
+        <div>
+            <label>Dataset</label>
+            <input name="dataset" value="<%= experiment.dataset %>" required>
+        </div>
+        <div class="wide">
+            <label>Metric name</label>
+            <select name="metricChoice">
+                <option value="Accuracy" <%= metricName == 'Accuracy' ? 'selected' : '' %>>Accuracy, the proportion of correct predictions out of all predictions</option>
+                <option value="Precision" <%= metricName == 'Precision' ? 'selected' : '' %>>Precision, the correct predictions out of all positive predictions</option>
+                <option value="Recall" <%= metricName == 'Recall' ? 'selected' : '' %>>Recall, the actual positives that were found</option>
+                <option value="F1" <%= metricName == 'F1' ? 'selected' : '' %>>F1, the balance of precision and recall</option>
+                <option value="RMSE" <%= metricName == 'RMSE' ? 'selected' : '' %>>RMSE, the root mean square error</option>
+                <option value="MAE" <%= metricName == 'MAE' ? 'selected' : '' %>>MAE, the mean absolute error</option>
+                <option value="MSE" <%= metricName == 'MSE' ? 'selected' : '' %>>MSE, the mean squared error</option>
+                <option value="BLEU" <%= metricName == 'BLEU' ? 'selected' : '' %>>BLEU, the translation evaluation metric</option>
+                <option value="Other" <%= metricIsKnown ? '' : 'selected' %>>Other, please type the metric name below</option>
+            </select>
+        </div>
+        <div>
+            <label>Other metric name</label>
+            <input name="metricOther" value="<%= metricIsKnown ? '' : metricName %>" placeholder="Please type the metric name if you selected other">
+        </div>
+        <div>
+            <label>Score</label>
+            <input name="metricValue" type="number" step="0.01" value="<%= metricValue %>">
+        </div>
+        <div>
+            <label>Loss</label>
+            <input name="loss" type="number" step="0.01" value="<%= experiment.loss %>">
+        </div>
+        <div>
+            <label>Learning rate</label>
+            <input name="learningRate" type="number" step="0.0001" value="<%= experiment.learningRate %>">
+        </div>
+        <div>
+            <label>Epochs</label>
+            <input name="epochs" type="number" value="<%= experiment.epochs %>">
+        </div>
+        <div>
+            <label>Batch size</label>
+            <input name="batchSize" type="number" value="<%= experiment.batchSize %>">
+        </div>
+        <div class="wide">
+            <label>Tags</label>
+            <input name="tags" value="<%= experiment.tags %>" placeholder="baseline, best, final">
+            <p class="hint">Tags are short labels for grouping runs. You can later search by one tag. For example, use baseline for the first comparison run, best for the preferred result, and final for the run that you want to keep.</p>
+        </div>
+        <div class="wide">
+            <label>Notes</label>
+            <textarea name="notes"><%= experiment.notes %></textarea>
+        </div>
+        <div class="wide">
+            <button type="submit">Update</button>
+        </div>
+    </form>
+</section>
+<%- include('footer') %>

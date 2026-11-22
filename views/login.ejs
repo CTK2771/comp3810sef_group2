@@ -1,0 +1,10 @@
+<%- include('header') %>
+<section class="panel intro">
+    <h1>Machine Learning Experiment Tracker</h1>
+    <p>This application keeps a record of machine learning runs. After you log in with Facebook, you can create an experiment, search your own records, update an experiment, and delete a run that you no longer need.</p>
+    <p>Each experiment stores not only the title, status, model, dataset, and metric name, but also the loss, learning rate, epochs, batch size, tags, and notes. For classification tasks, you can record Accuracy, Precision, Recall, or F1, etc. For regression tasks, you can record RMSE, MAE, or MSE, etc. For unsupervised learning tasks and reinforcement learning tasks, you can choose Other and type the metric name.</p>
+    <p>On the experiments page, you can search by status, model, dataset, tag, title, metric name, and a minimum score.</p>
+    <a class="button" href="/auth/facebook">Log in with Facebook</a>
+</section>
+<%- include('footer') %>
+

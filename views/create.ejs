@@ -1,0 +1,80 @@
+<%- include('header') %>
+<section class="panel">
+    <h1>Create an experiment</h1>
+    <form action="/experiments/create" method="POST" class="form-grid">
+        <div>
+            <label>Title</label>
+            <input name="title" required>
+        </div>
+        <div>
+            <label>Status</label>
+            <select name="status">
+                <option value="queued">Queued</option>
+                <option value="running">Running</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
+            </select>
+        </div>
+        <div>
+            <label>Model</label>
+            <input name="model" required>
+        </div>
+        <div>
+            <label>Dataset</label>
+            <input name="dataset" required>
+        </div>
+        <div class="wide">
+            <label>Metric name</label>
+            <select name="metricChoice">
+                <option value="Accuracy">Accuracy, the proportion of correct predictions out of all predictions</option>
+                <option value="Precision">Precision, the correct predictions out of all positive predictions</option>
+                <option value="Recall">Recall, the actual positives that were found</option>
+                <option value="F1">F1, the balance of precision and recall</option>
+                <option value="RMSE">RMSE, the root mean square error</option>
+                <option value="MAE">MAE, the mean absolute error</option>
+                <option value="MSE">MSE, the mean squared error</option>
+                <option value="BLEU">BLEU, the translation evaluation metric</option>
+                <option value="Other">Other, please type the metric name below</option>
+            </select>
+            <p class="hint">Choose the metric that this model is judged by.</p>
+        </div>
+        <div>
+            <label>Other metric name</label>
+            <input name="metricOther" placeholder="Please type the metric name if you selected other">
+        </div>
+        <div>
+            <label>Score</label>
+            <input name="metricValue" type="number" step="0.01" value="0">
+        </div>
+        <div>
+            <label>Loss</label>
+            <input name="loss" type="number" step="0.01" value="0">
+        </div>
+        <div>
+            <label>Learning rate</label>
+            <input name="learningRate" type="number" step="0.0001" value="0.001">
+        </div>
+        <div>
+            <label>Epochs</label>
+            <input name="epochs" type="number" value="1">
+        </div>
+        <div>
+            <label>Batch size</label>
+            <input name="batchSize" type="number" value="32">
+        </div>
+        <div class="wide">
+            <label>Tags</label>
+            <input name="tags" placeholder="baseline, best, final">
+            <p class="hint">Tags are short labels for grouping runs. You can later search by one tag. For example, use baseline for the first comparison run, best for the preferred result, and final for the run that you want to keep.</p>
+        </div>
+        <div class="wide">
+            <label>Notes</label>
+            <textarea name="notes"></textarea>
+        </div>
+        <div class="wide">
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</section>
+<%- include('footer') %>
+

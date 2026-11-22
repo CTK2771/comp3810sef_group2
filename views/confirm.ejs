@@ -1,0 +1,12 @@
+<%- include('header') %>
+<section class="panel">
+    <h1>Delete this experiment?</h1>
+    <p>Remove <b><%= experiment.title %></b>. The record cannot be restored.</p>
+    <form action="/experiments/delete" method="POST">
+        <input type="hidden" name="_id" value="<%= experiment._id %>">
+        <button class="danger" type="submit">Delete</button>
+        <a class="button quiet" href="/experiments/details?_id=<%= experiment._id %>">Cancel</a>
+    </form>
+</section>
+<%- include('footer') %>
+

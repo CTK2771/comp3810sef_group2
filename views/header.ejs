@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Machine Learning Experiment Tracker</title>
+    <link rel="stylesheet" href="/style.css">
+    <script>
+        if (window.location.hash === '#_=_') {
+            history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+    </script>
+</head>
+<body>
+<header>
+    <div class="wrap top">
+        <div class="idline">
+            <img class="logo" src="/HKMU-logo-full-v.png" alt="Hong Kong Metropolitan University">
+            <div>
+            <p class="brand">Machine Learning Experiment Tracker</p>
+            <% if (typeof user !== 'undefined' && user) { %>
+            <p class="hello">Welcome, <%= user.name %></p>
+            <% } %>
+            </div>
+        </div>
+        <% if (typeof user !== 'undefined' && user) { %>
+        <nav>
+            <a href="/experiments">Experiments</a>
+            <a href="/experiments/create">New experiment</a>
+            <a href="/logout">Logout</a>
+        </nav>
+        <% } %>
+    </div>
+</header>
+<main class="wrap">
+

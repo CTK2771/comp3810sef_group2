@@ -1,0 +1,21 @@
+{
+    "name": "server",
+    "description": "Machine Learning Experiment Tracker= EJS+MongoDB+OAuth+RESTful express app",
+    "author": "comp3810sef group2",
+    "version": "0.0.1",
+    "dependencies": {
+        "body-parser": "*",
+        "ejs": "*",
+        "express": "*",
+        "express-session": "*",
+        "mongodb": "^6.7.0",
+        "nodemon": "*",
+        "passport": "*",
+        "passport-facebook": "*"
+    },
+    "engine": "node >= 18.0.0",
+    "scripts": {
+        "start": "node server"
+    }
+}
+

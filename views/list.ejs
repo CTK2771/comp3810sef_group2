@@ -1,0 +1,86 @@
+<%- include('header') %>
+<section class="panel">
+    <h1>Search</h1>
+    <p class="hint">Model and dataset match part of the name. A minimum score is used only when a metric name is filled in, and it is compared only with that metric's number.</p>
+    <form action="/experiments" method="GET" class="filters">
+        <div>
+            <label>Status</label>
+            <select name="status">
+                <option value="">Any</option>
+                <option value="queued" <%= query.status == 'queued' ? 'selected' : '' %>>Queued</option>
+                <option value="running" <%= query.status == 'running' ? 'selected' : '' %>>Running</option>
+                <option value="completed" <%= query.status == 'completed' ? 'selected' : '' %>>Completed</option>
+                <option value="failed" <%= query.status == 'failed' ? 'selected' : '' %>>Failed</option>
+            </select>
+        </div>
+        <div>
+            <label>Model</label>
+            <input name="model" value="<%= query.model || '' %>" placeholder="part of the name">
+        </div>
+        <div>
+            <label>Dataset</label>
+            <input name="dataset" value="<%= query.dataset || '' %>" placeholder="part of the name">
+        </div>
+        <div>
+            <label>Tag</label>
+            <input name="tag" value="<%= query.tag || '' %>">
+        </div>
+        <div>
+            <label>Title contains</label>
+            <input name="keyword" value="<%= query.keyword || '' %>">
+        </div>
+        <div>
+            <label>Metric name</label>
+            <input name="metric" value="<%= query.metric || '' %>" placeholder="F1, RMSE, Accuracy">
+        </div>
+        <div>
+            <label>Minimum score</label>
+            <input name="minScore" type="number" step="0.01" value="<%= query.minScore || '' %>">
+        </div>
+        <div class="actions">
+            <button type="submit">Search</button>
+            <a class="button quiet" href="/experiments">Clear</a>
+        </div>
+    </form>
+</section>
+<p class="hint">All of your experiments. Choose a status to see only those runs.</p>
+<div class="counts">
+    <a class="count count-queued <%= query.status == 'queued' ? 'active' : '' %>" href="/experiments?status=queued">
+        <span>Queued</span>
+        <b><%= counts.queued %></b>
+    </a>
+    <a class="count count-running <%= query.status == 'running' ? 'active' : '' %>" href="/experiments?status=running">
+        <span>Running</span>
+        <b><%= counts.running %></b>
+    </a>
+    <a class="count count-completed <%= query.status == 'completed' ? 'active' : '' %>" href="/experiments?status=completed">
+        <span>Completed</span>
+        <b><%= counts.completed %></b>
+    </a>
+    <a class="count count-failed <%= query.status == 'failed' ? 'active' : '' %>" href="/experiments?status=failed">
+        <span>Failed</span>
+        <b><%= counts.failed %></b>
+    </a>
+</div>
+<h1>Experiments (<%= nExperiments %>)</h1>
+<% if (experiments.length > 0) { %>
+<div class="cards">
+    <% for (var e of experiments) { %>
+    <% var metricName = e.metricName || (e.accuracy != undefined ? 'Accuracy' : 'Score'); %>
+    <% var metricValue = e.metricValue !== '' && e.metricValue != undefined ? e.metricValue : e.accuracy; %>
+    <% var statusClass = ['queued','running','completed','failed'].indexOf(e.status) >= 0 ? e.status : 'queued'; %>
+    <a class="panel experiment" href="/experiments/details?_id=<%= e._id %>">
+        <h2><%= e.title %> <span class="status status-<%= statusClass %>"><%= e.status.charAt(0).toUpperCase()+e.status.slice(1) %></span></h2>
+        <p class="meta">Model: <%= e.model %></p>
+        <p class="meta">Dataset: <%= e.dataset %></p>
+        <p class="score"><%= metricName %>: <%= metricValue %></p>
+    </a>
+    <% } %>
+</div>
+<% } else { %>
+<section class="panel">
+    <p>No experiments match this search. <a href="/experiments/create">Create a new experiment</a>.</p>
+</section>
+<% } %>
+<%- include('footer') %>
+
