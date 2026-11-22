@@ -269,7 +269,7 @@ const handle_Update = async (req, res) => {
     if (docs.length > 0 && docs[0].userid == req.user.id) {
         let updateData = experimentFromForm(req.body);
         const results = await updateDocument(db, DOCID, updateData);
-        res.status(200).render('info', { message: `Updated ${results.modifiedCount} experiment(s).`, user: req.user });
+        res.status(200).render('info', { message: 'Updated 1 experiment.', user: req.user });
     } else {
         res.status(200).render('info', { message: 'Unable to update because the experiment was not found, or you are not the owner.', user: req.user });
     }
