@@ -99,7 +99,7 @@ main {
     background: #fff;
     border-radius: 12px;
     padding: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 28px;
     box-shadow: 0 1px 4px rgba(17, 98, 171, 0.08);
 }
 
@@ -182,7 +182,7 @@ button:hover, .button:hover {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 12px;
-    margin-bottom: 8px;
+    margin-bottom: 28px;
 }
 
 .count {
@@ -306,6 +306,7 @@ button:hover, .button:hover {
 
 h1 {
     margin-top:0;
+    margin-bottom: 16px;
 }
 
 footer {
@@ -316,13 +317,6 @@ footer {
     font-size: 0.85rem;
 }
 
-
-.footer-line {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    flex-wrap: wrap;
-}
 
 
 @media (max-width: 700px) {
