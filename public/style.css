@@ -317,6 +317,14 @@ footer {
 }
 
 
+.footer-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+
 @media (max-width: 700px) {
     .filters, .form-grid, .facts, .cards {
         grid-template-columns: 1fr;
