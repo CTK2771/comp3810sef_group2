@@ -319,7 +319,15 @@ app.get('/login', function (req, res) {
 });
 
 
-app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
+app.get('/privacy', function (req, res) {
+    res.render('privacy');
+});
+
+app.get('/deletion', function (req, res) {
+    res.render('deletion');
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
 
 
 app.get('/auth/facebook/callback',
