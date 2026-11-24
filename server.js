@@ -456,7 +456,7 @@ app.get('/api/experiments/status/:status', async (req, res) => {
 
 
 //RESTful services: CREATE ~ POST
-//curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.74,"loss":0.42,"learningRate":0.01,"epochs":10,"batchSize":32,"tags":"demo","notes":"first run"}' http://localhost:8099/api/experiments
+//curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.74,"loss":0.42,"learningRate":0.01,"epochs":10,"batchSize":32,"tags":"demo","notes":"first run"}' "http://localhost:8099/api/experiments"
 //curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.74,"loss":0.42,"learningRate":0.01,"epochs":10,"batchSize":32,"tags":"demo","notes":"first run"}' "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments"
 app.post('/api/experiments', async (req, res) => {
     await client.connect();
@@ -470,7 +470,7 @@ app.post('/api/experiments', async (req, res) => {
 
 
 //RESTful services: UPDATE ~ PUT
-//curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.91,"status":"completed"}' http://localhost:8099/api/experiments/title/curl-test
+//curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.91,"status":"completed"}' "http://localhost:8099/api/experiments/title/curl-test"
 //curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.91,"status":"completed"}' "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/title/curl-test"
 app.put('/api/experiments/title/:title', async (req, res) => {
     await client.connect();
