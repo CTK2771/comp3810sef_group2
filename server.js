@@ -392,6 +392,7 @@ app.get('/logout', function (req, res, next) {
 
 //RESTful services: READ ~ GET
 //curl "http://localhost:8099/api/experiments"
+//curl "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments"
 app.get('/api/experiments', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -401,7 +402,8 @@ app.get('/api/experiments', async (req, res) => {
 });
 
 
-//curl "http://localhost:8099/api/experiments/search?status=completed&metric=F1&minScore=0.7"
+//curl "http://localhost:8099/api/experiments/search?status=completed&metric=F1&minScore=0.90"
+//curl "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/search?status=completed&metric=F1&minScore=0.90"
 app.get('/api/experiments/search', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -413,6 +415,7 @@ app.get('/api/experiments/search', async (req, res) => {
 
 
 //curl "http://localhost:8099/api/experiments/count"
+//curl "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/count"
 app.get('/api/experiments/count', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -429,6 +432,7 @@ app.get('/api/experiments/count', async (req, res) => {
 
 
 //curl "http://localhost:8099/api/experiments/title/curl-test"
+//curl "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/title/curl-test"
 app.get('/api/experiments/title/:title', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -439,7 +443,8 @@ app.get('/api/experiments/title/:title', async (req, res) => {
 });
 
 
-//curl "http://localhost:8099/api/experiments/status/queued"
+//curl "http://localhost:8099/api/experiments/status/completed"
+//curl "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/status/completed"
 app.get('/api/experiments/status/:status', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -451,7 +456,8 @@ app.get('/api/experiments/status/:status', async (req, res) => {
 
 
 //RESTful services: CREATE ~ POST
-//curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.5,"loss":1.2,"learningRate":0.01,"epochs":10,"batchSize":16,"tags":"demo","notes":"from curl"}' http://localhost:8099/api/experiments
+//curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.74,"loss":0.42,"learningRate":0.01,"epochs":10,"batchSize":32,"tags":"demo","notes":"first run"}' http://localhost:8099/api/experiments
+//curl -X POST -H "Content-Type: application/json" -d '{"title":"curl-test","model":"logistic","dataset":"iris","status":"queued","metricName":"F1","metricValue":0.74,"loss":0.42,"learningRate":0.01,"epochs":10,"batchSize":32,"tags":"demo","notes":"first run"}' "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments"
 app.post('/api/experiments', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -464,7 +470,8 @@ app.post('/api/experiments', async (req, res) => {
 
 
 //RESTful services: UPDATE ~ PUT
-//curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.9,"status":"completed"}' http://localhost:8099/api/experiments/title/curl-test
+//curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.91,"status":"completed"}' http://localhost:8099/api/experiments/title/curl-test
+//curl -X PUT -H "Content-Type: application/json" -d '{"metricName":"F1","metricValue":0.91,"status":"completed"}' "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/title/curl-test"
 app.put('/api/experiments/title/:title', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
@@ -491,6 +498,7 @@ app.put('/api/experiments/title/:title', async (req, res) => {
 
 //RESTful services: DELETE ~ DELETE
 //curl -X DELETE "http://localhost:8099/api/experiments/title/curl-test"
+//curl -X DELETE "https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/api/experiments/title/curl-test"
 app.delete('/api/experiments/title/:title', async (req, res) => {
     await client.connect();
     console.log("Connected successfully to server");
