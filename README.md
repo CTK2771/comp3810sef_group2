@@ -159,7 +159,7 @@ Operation(s):
 8. `DELETE | '/api/experiments/title/:title'`
 ### Testing Commands (run in order)
 The JSON blocks below are examples from one test. A new run receives a new `_id` and `createdAt`. Read-all and count return every experiment in the database, so those two results can contain more records than `curl-test`.
-### For Cloud:
+### Cloud commands:
 1. Create - HTTP Request Type: POST
 <br/>Path URI: `/api/experiments`
 
@@ -240,7 +240,7 @@ Response:
 ```json
 {"acknowledged":true,"deletedCount":1}
 ```
-#### For Local Development:
+### Local commands:
 1. Create - HTTP Request Type: POST
 <br/>Path URI: `/api/experiments`
 
