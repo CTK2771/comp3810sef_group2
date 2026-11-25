@@ -85,6 +85,7 @@ For a name and password, type one of these accounts and click **Log in**:
 Each account sees only the experiments created while that account is logged in. A wrong name or password stays on the login page and shows `The name or password is not correct.`
 
 For Facebook, click **Log in with Facebook** and approve the request. This works for the Facebook account that owns the app, or for an account that has accepted a tester invitation. The server stores that person's Facebook name and Facebook id.
+Since OAuth has been demonstrated through the Facebook login in the group demo section, the Facebook account information is not included in this README for privacy reasons. An examiner can use the guest or developer account above to test the pages.
 
 After either login, the experiments page opens. The header shows `Welcome` and that person's name. The experiment pages cannot be opened before login. A direct visit is redirected to `/login`.
 ### Logout
