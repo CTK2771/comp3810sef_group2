@@ -1,9 +1,8 @@
 # comp3810sef_group2
-Github repository: https://github.com/CTK2771/comp3810sef_group2.git
 ## Project Information
 **Project name:** Machine Learning Experiment Tracker
 
-This server-side application keeps a record of machine learning experiment. A user logs in with a name and password, or with Facebook, and then creates, searches, updates, and delete that user's own experiments. The same records can also be created, read, updated, and deleted through RESTful API services.
+This server-side application keeps a record of machine learning experiments. A user logs in with a name and password, or with Facebook, and then creates, searches, updates, and delete that user's own experiments. The same records can also be created, read, updated, and deleted through RESTful API services.
 
 **Cloud-based server URL:** https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net
 ## Group Information
@@ -51,7 +50,7 @@ Group Number: 2
     - **edit.ejs**: Page for updating the details of the experiments
     - **footer.ejs**: Reusable footer component
     - **header.ejs**: Reusable header component
-    - **info.ejs**: Message page that shown after an update or a delete, with a button back to the experiments page.
+    - **info.ejs**: Message page shown after an update or a delete, with a button back to the experiments page.
     - **list.ejs**: Page for listing all the experiments created
     - **login.ejs**: Login page
     - **privacy.ejs**: Page for informing the use of users' credentials and created experiments
@@ -59,16 +58,16 @@ Group Number: 2
 ### How to Start
 #### Cloud
 The application is deployed and available at: https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net/login
-#### Local Development (need MongoDB URI from application owner)
-To run the application locally:
-1. Open the link https://github.com/CTK2771/comp3810sef_group2.git and download all the files or `git clone` the link.
+#### Local Development 
+To run the application locally, use this submitted folder. It contains server.js, package.json, and this README.
+1. Open a terminal in this submitted folder.
 2. Install dependencies:
     ```bash
     npm install
     ```
-3. In the same terminal, enter MongoDB URI:
+3. In the same terminal, enter MongoDB URI: (The connection string is included only in the submitted README)
     ```bash
-    export MONGODB_URI='mongodb+srv://xxxxxxx'
+    export MONGODB_URI='XXXXXX'
     ```
 4. Start the server, then open http://localhost:8099. Leave `CALLBACK_URL` unset.
     ```bash
@@ -84,7 +83,7 @@ For a name and password, type one of these accounts and click **Log in**:
 
 Each account sees only the experiments created while that account is logged in. A wrong name or password stays on the login page and shows `The name or password is not correct.`
 
-For Facebook, click **Log in with Facebook** and approve the request. This works for the Facebook account that owns the app, or for an account that has accepted a tester invitation. The server stores that person's Facebook name and Facebook id.
+For Facebook, click **Log in with Facebook** and approve the request. This works for the Facebook account that owns the app, or for an account that has accepted a tester invitation. The server stores that person's Facebook name and Facebook id. 
 Since OAuth has been demonstrated through the Facebook login in the group demo section, the Facebook account information is not included in this README for privacy reasons. An examiner can use the guest or developer account above to test the pages.
 
 After either login, the experiments page opens. The header shows `Welcome` and that person's name. The experiment pages cannot be opened before login. A direct visit is redirected to `/login`.
