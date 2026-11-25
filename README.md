@@ -15,7 +15,7 @@ Group Number: 2
 - Li Yu Hong --- 13812771
   - Role: Web developer.
   - Responsibilities: Built the pages for creating an experiment, viewing its details, updating it, and deleting it after confirmation.
-- Wong Chun Ho --- 13486322 -
+- Wong Chun Ho --- 13486322 
   - Role: API developer.
   - Responsibilities: Built the experiment search and the eight RESTful services: create, read by title, update, delete, read by status, search, read all, and count, including the curl commands.
 - Liu Chun Kuen --- 13496388
