@@ -309,6 +309,11 @@ h1 {
     margin-bottom: 16px;
 }
 
+
+.intro h2 {
+    margin-top: 28px;
+}
+
 footer {
     margin-top:auto;
     background:#58595b;
