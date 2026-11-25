@@ -21,7 +21,7 @@ Group Number: 2
   - Responsibilities: Built the experiment search and the eight RESTful services: create, read by title, update, delete, read by status, search, read all, and count, including the curl commands.
 - Liu Chun Kuen, 13496388
   - Role: UI developer
-  - Responsibilities: Built the page layout and styling, and wrote the README and the demo script.
+  - Responsibilities: Built the page layout and styling, and wrote the README.
 ## Project File Introduction
 - `server.js`
     - Starts the Express server on `process.env.PORT`, or on port 8099 when that variable is unset.
