@@ -2,7 +2,7 @@
 Github repository: https://github.com/CTK2771/comp3810sef_group2.git
 ## Project Information
 Project name: Machine Learning Experiment Tracker
--This server-side application keeps a record of machine learning experiment. A user logs in with a name and password, or with Facebook, and then creates, searches, updates, and delete that user's own experiments. The same records can also be created, read, updated, and deleted through RESTful API services.
+This server-side application keeps a record of machine learning experiment. A user logs in with a name and password, or with Facebook, and then creates, searches, updates, and delete that user's own experiments. The same records can also be created, read, updated, and deleted through RESTful API services.
 Cloud-based server URL: https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net
 ## Group Information
 Group Number: 2
