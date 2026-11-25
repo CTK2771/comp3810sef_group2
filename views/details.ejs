@@ -2,6 +2,8 @@
 <% var metricName = experiment.metricName || (experiment.accuracy != undefined ? 'Accuracy' : 'Score'); %>
 <% var metricValue = experiment.metricValue !== '' && experiment.metricValue != undefined ? experiment.metricValue : experiment.accuracy; %>
 <% var statusClass = ['queued','running','completed','failed'].indexOf(experiment.status) >= 0 ? experiment.status : 'queued'; %>
+<% var createdText = ''; %>
+<% if (experiment.createdAt) { createdText = new Date(experiment.createdAt).toLocaleString('en-GB', { timeZone: 'Asia/Hong_Kong', hour12: false }) + ' Hong Kong time'; } %>
 <section class="panel">
     <h1><%= experiment.title %> <span class="status status-<%= statusClass %>"><%= experiment.status.charAt(0).toUpperCase()+experiment.status.slice(1) %></span></h1>
     <p class="score"><%= metricName %>: <%= metricValue %></p>
@@ -14,7 +16,7 @@
         <span>Batch size</span><b><%= experiment.batchSize %></b>
         <span>Tags</span><b><%= experiment.tags %></b>
         <span>Notes</span><b><%= experiment.notes %></b>
-        <span>Created</span><b><%= experiment.createdAt %></b>
+        <span>Created</span><b><%= createdText %></b>
         <span>Owner</span><b><%= experiment.username %></b>
     </div>
     <p>
