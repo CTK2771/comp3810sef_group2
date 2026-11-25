@@ -9,19 +9,19 @@ This server-side application keeps a record of machine learning experiment. A us
 ## Group Information
 Group Number: 2
 - Cheung Tsz Kin, 13492771
-  - Role: Group leader and backend developer.
+  - Role: Group leader and backend developer
   - Responsibilities: Coordinated the group and managed the project submission. Built the Express server, the MongoDB connection and the deployment on Azure.
 - Chu Pak Yeun, 13484052
-  - Role: Authentication developer.
+  - Role: Authentication developer
   - Responsibilities: Built the Facebook login and the name-and-password login for the guest and developer accounts, including the logout and the rule that the experiment pages open only after login.
 - Li Yu Hong, 13812771
-  - Role: Web developer.
+  - Role: Web developer
   - Responsibilities: Built the pages for creating an experiment, viewing its details, updating it, and deleting it after confirmation.
 - Wong Chun Ho, 13486322 
-  - Role: API developer.
+  - Role: API developer
   - Responsibilities: Built the experiment search and the eight RESTful services: create, read by title, update, delete, read by status, search, read all, and count, including the curl commands.
 - Liu Chun Kuen, 13496388
-  - Role: UI developer.
+  - Role: UI developer
   - Responsibilities: Built the page layout and styling, and wrote the README and the demo script.
 ## Project File Introduction
 - `server.js`
