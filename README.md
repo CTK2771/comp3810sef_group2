@@ -20,7 +20,7 @@ Group Number: 2
 - Wong Chun Ho, 13486322 
   - Role: API developer.
   - Responsibilities: Built the experiment search and the eight RESTful services: create, read by title, update, delete, read by status, search, read all, and count, including the curl commands.
-- Liu Chun Kuen --- 13496388
+- Liu Chun Kuen, 13496388
   - Role: UI developer.
   - Responsibilities: Built the page layout and styling, and wrote the README and the demo script.
 ## Project File Introduction
