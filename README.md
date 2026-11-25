@@ -2,20 +2,22 @@
 Github repository: https://github.com/CTK2771/comp3810sef_group2.git
 ## Project Information
 **Project name:** Machine Learning Experiment Tracker
+
 This server-side application keeps a record of machine learning experiment. A user logs in with a name and password, or with Facebook, and then creates, searches, updates, and delete that user's own experiments. The same records can also be created, read, updated, and deleted through RESTful API services.
+
 **Cloud-based server URL:** https://sample-deploy-13492771-app-c9daebfabsavebca.southafricanorth-01.azurewebsites.net
 ## Group Information
 Group Number: 2
-- Cheung Tsz Kin --- 13492771
+- Cheung Tsz Kin, 13492771
   - Role: Group leader and backend developer.
   - Responsibilities: Coordinated the group and managed the project submission. Built the Express server, the MongoDB connection and the deployment on Azure.
-- Chu Pak Yeun --- 13484052
+- Chu Pak Yeun, 13484052
   - Role: Authentication developer.
   - Responsibilities: Built the Facebook login and the name-and-password login for the guest and developer accounts, including the logout and the rule that the experiment pages open only after login.
-- Li Yu Hong --- 13812771
+- Li Yu Hong, 13812771
   - Role: Web developer.
   - Responsibilities: Built the pages for creating an experiment, viewing its details, updating it, and deleting it after confirmation.
-- Wong Chun Ho --- 13486322 
+- Wong Chun Ho, 13486322 
   - Role: API developer.
   - Responsibilities: Built the experiment search and the eight RESTful services: create, read by title, update, delete, read by status, search, read all, and count, including the curl commands.
 - Liu Chun Kuen --- 13496388
