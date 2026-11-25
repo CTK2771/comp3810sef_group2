@@ -62,6 +62,11 @@ function isLoggedIn(req, res, next) {
     res.redirect('/login');
 }
 
+//These are lab 8 login accounts. These are the accounts an examiner or user can use.
+const accounts = new Array(
+    {id: 'guest', name: 'guest', password: 'guest'},
+    {id: 'developer', name: 'developer', password: 'developer'}
+);
 
 //MongoDB database info
 const mongourl = process.env.MONGODB_URI; //MONGODB_URI already set in Azure
@@ -315,9 +320,29 @@ const handle_Delete = async (req, res) => {
 
 
 app.get('/login', function (req, res) {
-    res.render('login');
+    res.render('login', { message: '' });
 });
 
+app.post('/login', function (req, res, next) {
+    let found = null;
+    accounts.forEach(function (account) {
+        if (account.name == req.body.name && account.password == req.body.password) {
+            found = account;
+        }
+    });
+    if (!found) {
+        res.status(200).render('login', { message: 'The name or password is not correct.' });
+        return;
+    }
+    let loginUser = {};
+    loginUser['id'] = found.id;
+    loginUser['name'] = found.name;
+    loginUser['type'] = 'local';
+    req.login(loginUser, function (err) {
+        if (err) { return next(err); }
+        res.redirect('/experiments');
+    });
+});
 
 app.get('/privacy', function (req, res) {
     res.render('privacy');
